@@ -1,0 +1,54 @@
+.element {
+    width: 5rem;
+    height: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #e5e7eb;
+    position: relative;
+    transition: transform 0.2s;
+}
+.element:hover {
+    transform: scale(1.05);
+    z-index: 10;
+}
+.tooltip {
+    visibility: hidden;
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1f2937;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    z-index: 20;
+    width: 200px;
+    text-align: left;
+    font-size: 0.75rem;
+}
+.element:hover .tooltip {
+    visibility: visible;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(18, 5rem);
+    gap: 0.25rem;
+    max-width: 100%;
+    overflow-x: auto;
+}
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(18, 3.5rem);
+    }
+    .element {
+        width: 3.5rem;
+        height: 3.5rem;
+        font-size: 0.75rem;
+    }
+    .tooltip {
+        width: 150px;
+        font-size: 0.65rem;
+    }
+}
